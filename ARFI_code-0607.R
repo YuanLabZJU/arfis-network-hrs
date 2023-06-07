@@ -648,7 +648,7 @@ INW <- paste0('INW', 5:14)
 
 exe_var <- paste0('R', 7:14, 'VGACTX')
 df_tra <- df_localldata[c('HHIDPN', INW, age, 'RAGENDER', 'RARACEM', 'RAEDUC', bmi, drink, income, smoke, exe, 'drink', 'smoke',
-                          'DEPTIME', 'DEPOC', 'FRAILTIME', 'FRAILOC', 'CITIME', 'CIOC', 'EITIME', 'EIOC', 'HITIME', 'HIOC', 'SLEEPTIME', 'SLEEPOC', 'DEMTIME', 'DEMOC', 'RADYEAR')]
+                          'DEPTIME', 'DEPOC', 'FRAILTIME', 'FRAILOC', 'CITIME', 'CIOC', 'EITIME', 'EIOC', 'HITIME', 'HIOC', 'SLEEPTIME', 'SLEEPOC', 'RADYEAR')]
 df_tra[exe_var][df_tra[exe_var] <= 3] <- 0
 df_tra[exe_var][df_tra[exe_var] > 3] <- 1
 
@@ -677,7 +677,6 @@ T1(CI_var, 'CITIME', 'CIOC', 't1_ci')
 T1(DEP_var, 'DEPTIME', 'DEPOC', 't1_dep')
 T1(FRA_var, 'FRAILTIME', 'FRAILOC', 't1_fra')
 T1(SLE_var, 'SLEEPTIME', 'SLEEPOC', 't1_sle')
-T1(DEM_var, 'DEMTIME', 'DEMOC', 't1_dem')
 
 ## Calculate t2 for ARFI when treating as outcome
 T2 <- function(var_list, t, oc, var_name){
@@ -704,7 +703,6 @@ T2(CI_var, 'CITIME', 'CIOC', 't2_ci')
 T2(DEP_var, 'DEPTIME', 'DEPOC', 't2_dep')
 T2(FRA_var, 'FRAILTIME', 'FRAILOC', 't2_fra')
 T2(SLE_var, 'SLEEPTIME', 'SLEEPOC', 't2_sle')
-T2(DEM_var, 'DEMTIME', 'DEMOC', 't2_dem')
 
 # Define the mortality outcome and time
 df_tra <- within(df_tra, {
